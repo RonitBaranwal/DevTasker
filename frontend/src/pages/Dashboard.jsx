@@ -1,18 +1,16 @@
 // src/pages/Dashboard.jsx
-import React from "react";
+import React, { useContext } from "react";
 import StatCard from "../components/StatCard.jsx"
 import Navbar from "../components/NavBar.jsx";
+import { DashboardContext } from "../context/DashboardContext.jsx";
 
 const Dashboard = () => {
   // 🔧 These will come from context/hooks later
-  const totalTasks = 5;
-  const completedTasks = 7;
-  const focusTimeToday = "1h 30m";
-  const notesCount = 2;
-  const githubStats = {
-    repos: 3,
-    followers: 20,
-  };
+  const {totalTasks} = useContext(DashboardContext);
+  const {completedTasks} = useContext(DashboardContext);
+  const {focusTimeToday}=useContext(DashboardContext)
+  const {notesCount} = useContext(DashboardContext);
+  const { githubStats } = useContext(DashboardContext);
   return (
     <>
       <Navbar/>
