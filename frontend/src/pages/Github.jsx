@@ -6,7 +6,6 @@ const Github = () => {
     const [data, setData] = useState();
     useEffect(() => {
         const fetchData = async () => {
-            // const data = await axios.get("https://github.com/hiteshchoudhary/");
             try {
                 const response = await axios.get(
                     "https://api.github.com/users/ronitbaranwal"
@@ -19,7 +18,7 @@ const Github = () => {
             }
         };
         fetchData();
-        console.log(data);
+        
     }, );
    
     return (
@@ -41,7 +40,7 @@ const Github = () => {
                                 className='w-24 h-24 rounded-full border-2 border-gray-300 dark:border-gray-600'
                             />
                             <div>
-                                <h3 className='text-2xl font-semibold'>
+                                <h3 className='text-2xl font-semibold text-amber-100'>
                                     {data.name}
                                 </h3>
                                 <p className='text-gray-500 dark:text-gray-400'>

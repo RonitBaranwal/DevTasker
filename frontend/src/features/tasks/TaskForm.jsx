@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TaskReducer = ({ dispatch, state }) => {
+const TaskForm = ({ dispatch }) => {
     const [task, setTask] = useState("");
     return (
         <form className='flex flex-col sm:flex-row gap-4 mb-6'>
@@ -28,4 +28,4 @@ const TaskReducer = ({ dispatch, state }) => {
     );
 };
 
-export default TaskReducer;
+export default TaskForm;

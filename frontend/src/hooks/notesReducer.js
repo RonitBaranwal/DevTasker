@@ -1,5 +1,11 @@
-export const  notesReducer = (state, action) => {
+export const notesReducer = (state, action) => {
     switch (action.type) {
+        case "INIT_NOTES":
+            return {
+                ...state,
+                notes: action.payload,
+                hasInitialized:true,
+            };
         case "ADD":
             return {
                 ...state,
@@ -13,7 +19,6 @@ export const  notesReducer = (state, action) => {
                 ],
             };
         case "DELETE":
-            console.log(action.payload);
             return {
                 ...state,
                 notes: state.notes.filter((nt) => nt.id !== action.payload),
@@ -23,5 +28,13 @@ export const  notesReducer = (state, action) => {
     }
 };
 export const initialState = {
-    notes: [],
+    notes: (() => {
+        try {
+            const data = JSON.parse(localStorage.getItem("notes"));
+            return Array.isArray(data) ? data : [];
+        } catch {
+            return [];
+        }
+    })(),
+    hasInitialized:false,
 };
