@@ -9,13 +9,7 @@ const TaskItem = ({ completed, title,dispatch ,id}) => {
     const deleteFuntion = () => {
         
         dispatch({ type: "DELETE", payload: { id } });
-        const taskList = JSON.parse(localStorage.getItem('tasks'));
-        const ans = [];
-        for (const task of taskList) {
-            if (task.taskId !== id) ans.push(task);
-        }
         
-        localStorage.setItem('tasks',JSON.stringify(ans));
     }
     return (
         <div className='flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md'>

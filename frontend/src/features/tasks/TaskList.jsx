@@ -13,6 +13,7 @@ const getAllTasks = () => {
 
 const inititalState = {
     tasks: getAllTasks(),
+    hasIntialized: false,
 };
 
 const TaskList = () => {
@@ -22,16 +23,16 @@ const TaskList = () => {
         const data = getAllTasks();
         dispatch({ type: "INIT_TASKS", payload: data });
     }, []);
-    
+
     useEffect(() => {
-        localStorage.setItem("tasks", JSON.stringify(state.tasks));
-        
-    }, [state.tasks]);
+        if (state.hasIntialized) {
+            localStorage.setItem("tasks", JSON.stringify(state.tasks));
+        }
+    }, [state.tasks, state.hasIntialized]);
 
     return (
         <>
             <div className='space-y-4 mb-10'>
-                
                 {state.tasks.map((currTask) => (
                     <TaskItem
                         key={currTask.taskId}

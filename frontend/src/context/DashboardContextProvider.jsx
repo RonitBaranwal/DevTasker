@@ -1,8 +1,7 @@
 import React, {  useState } from 'react'
 import { DashboardContext } from './DashboardContext';
 const DashboardContextProvider = ({ children }) => {
-    const [focusTimeToday, setFocusTimeToday] = useState(0);
-    const [totalTasks, setTotalTasks] = useState(0);
+    
     
     const [notesCount, setNotesCount] = useState(0);
     const [githubStats, setGithubStats] = useState({
@@ -12,12 +11,7 @@ const DashboardContextProvider = ({ children }) => {
     
     return (
         <DashboardContext.Provider
-            value={{
-                focusTimeToday,
-                setFocusTimeToday,
-                totalTasks,
-                setTotalTasks,
-               
+            value={{               
                 notesCount,
                 setNotesCount,
                 githubStats,

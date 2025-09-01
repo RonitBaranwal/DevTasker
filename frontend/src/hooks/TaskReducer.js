@@ -1,9 +1,11 @@
 export const reducer = (state, action) => {
     switch (action.type) {
         case "INIT_TASKS":
+            console.log("state ", state);
             return {
                 ...state,
                 tasks: action.payload,
+                hasIntialized:true,
             };
         case "ADD":
             if (action.payload.title.trim().length === 0) {

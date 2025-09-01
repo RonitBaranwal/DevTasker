@@ -5,7 +5,7 @@ import Navbar from "../components/NavBar.jsx";
 import { DashboardContext } from "../context/DashboardContext.jsx";
 
 const Dashboard = () => {
-  // 🔧 These will come from context/hooks later
+  
   
   const focusTimeToday=localStorage.getItem('focus-time')
   const notesCount = JSON.parse(localStorage.getItem("notes")).length;
